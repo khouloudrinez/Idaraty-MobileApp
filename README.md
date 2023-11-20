@@ -1,0 +1,1 @@
+# Idaraty-MobileApp
