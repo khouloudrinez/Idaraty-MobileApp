@@ -1,0 +1,7 @@
+{
+  "name": "Idaraty-Mobile-App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
