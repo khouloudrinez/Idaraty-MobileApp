@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
-import { RouteRecordRaw } from 'vue-router';
-import HomePage from '../views/HomePage.vue'
+import SplashScreen from '../views/SplashScreen.vue'
+import NextPage from '../views/NextPage.vue';
 
-const routes: Array<RouteRecordRaw> = [
+const routes  = [
   {
     path: '/',
     redirect: '/home'
@@ -10,7 +10,12 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/home',
     name: 'Home',
-    component: HomePage
+    component: SplashScreen
+  },
+  {
+    path: '/next',
+    name: 'Next',
+    component: NextPage,
   }
 ]
 
