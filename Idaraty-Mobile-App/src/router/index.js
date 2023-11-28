@@ -1,6 +1,10 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
-import SplashScreen from '../views/SplashScreen.vue'
-import NextPage from '../views/NextPage.vue';
+import SplashScreen from '../views/SplashScreen.vue';
+import UserRole from '../views/UserRole.vue';
+import CitizenPage from '../views/CitizenPage.vue' ;
+import AdministratorPage from '../views/AdministratorPage.vue';
+import BusinessPage from '../views/BusinessPage.vue' ;
+
 
 const routes  = [
   {
@@ -13,9 +17,24 @@ const routes  = [
     component: SplashScreen
   },
   {
-    path: '/next',
-    name: 'Next',
-    component: NextPage,
+    path: '/role',
+    name: 'Role',
+    component: UserRole,
+  } ,
+  {
+    path: '/citizen',
+    name: 'Citizen',
+    component: CitizenPage,
+  } ,
+  {
+    path: '/administrator',
+    name: 'Administrator',
+    component: AdministratorPage,
+  },
+  {
+    path: '/business',
+    name: 'Business',
+    component: BusinessPage,
   }
 ]
 
