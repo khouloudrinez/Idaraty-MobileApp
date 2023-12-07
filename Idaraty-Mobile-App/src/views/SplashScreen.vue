@@ -32,7 +32,7 @@ const startLoading = () => {
   setTimeout(() => {
     loading.value = false;
     router.push('/role');
-  }, 3000);
+  }, 2000);
 };
 </script>
 

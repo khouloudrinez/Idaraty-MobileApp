@@ -9,9 +9,9 @@
             <ion-label>Home</ion-label>
           </ion-tab-button>
   
-          <ion-tab-button tab="search" href="/search">
+          <ion-tab-button tab="search" href="/explore">
             <ion-icon :icon="search" />
-            <ion-label>Search</ion-label>
+            <ion-label>Explore</ion-label>
           </ion-tab-button>
   
           <ion-tab-button tab="profile" href="/profile">

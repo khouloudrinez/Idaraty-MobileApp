@@ -5,10 +5,17 @@ import CitizenPage from '../views/CitizenPage.vue' ;
 import AdministratorPage from '../views/AdministratorPage.vue';
 import BusinessPage from '../views/BusinessPage.vue' ;
 import HomeScreen from '../views/HomeScreen.vue' ;
-import Search from '../views/Search.vue' ;
+import ExplorePage from '../views/ExplorePage.vue' ;
 import Profile from '../views/Profile.vue' ;
 import AdmDetails from '../views/AdmDetails.vue' ;
 import ProcDetails from '../views/ProcDetails.vue' ;
+import StartPage from '../views/StartPage.vue' ;
+import CreateAccountPage from '../views/CreateAccountPage.vue' ;
+import LoginPage from '../views/LoginPage.vue' ;
+import ListPage from '../views/ListPage.vue' ;
+import LanguagePage from '../views/LanguagePage.vue' ;
+
+
 const routes  = [
   {
     path: '/',
@@ -17,7 +24,7 @@ const routes  = [
   {
     path: '/home',
     name: 'Home',
-    component: SplashScreen
+    component: StartPage,
   },
   {
     path: '/role',
@@ -45,9 +52,9 @@ const routes  = [
     component: HomeScreen,
   } ,
   {
-    path: '/search',
-    name: 'search',
-    component: Search,
+    path: '/explore',
+    name: 'explore',
+    component: ExplorePage,
   },
   {
     path: '/profile',
@@ -63,8 +70,32 @@ const routes  = [
     path: '/procdetails/:id',
     component: ProcDetails,
     props : true,
-  }
-  
+  } ,
+  {
+    path: '/start',
+    name: 'Start',
+    component: StartPage,
+  },
+  {
+    path: '/createaccount',
+    name: 'CreateAccount',
+    component: CreateAccountPage,
+  },
+  {
+    path: '/login',
+    name: 'LoginPage',
+    component: LoginPage,
+  },
+  {
+    path: '/list',
+    name: 'ListPage',
+    component: ListPage,
+  },
+  {
+    path: '/language',
+    name: 'LanguagePage',
+    component: LanguagePage,
+  },
 ]
 
 const router = createRouter({
