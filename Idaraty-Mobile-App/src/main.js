@@ -1,6 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router';
+import { createI18n } from 'vue-i18n' ;
+import fr from './locale/fr.json' ; 
+import ar from './locale/ar.json' ;    
+ 
 
 import { IonicVue } from '@ionic/vue';
 import { IonIcon } from '@ionic/vue';
@@ -23,11 +27,24 @@ import '@ionic/vue/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+const savedLanguage = localStorage.getItem('selectedLanguage');
+const defaultLocale = savedLanguage || 'fr';
+
+const i18n = createI18n({
+  locale: 'fr',
+  messages: {
+    fr: fr,
+    ar: ar,
+  },
+});
 
 const app = createApp(App)
   .use(IonicVue)
-  .use(router);
+  .use(router)
+  .use(i18n) ;
   
 router.isReady().then(() => {
   app.mount('#app');
 });
+
+export { i18n };

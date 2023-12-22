@@ -14,6 +14,14 @@ import CreateAccountPage from '../views/CreateAccountPage.vue' ;
 import LoginPage from '../views/LoginPage.vue' ;
 import ListPage from '../views/ListPage.vue' ;
 import LanguagePage from '../views/LanguagePage.vue' ;
+import AdministrationsPage from '../views/AdministrationsPage.vue' ;
+import ProceduresPage from '../views/ProceduresPage.vue' ;
+import FormulairesPage from '../views/FormulairesPage.vue' ;
+import FormDetails from '../views/FormDetails.vue' ;
+import FeedPostDetailPage from '../views/FeedPostDetailPage.vue' ;
+import PopoverContent from '../views/PopoverContent.vue' ;
+import Test from '../views/Test.vue' ;
+
 
 
 const routes  = [
@@ -62,14 +70,14 @@ const routes  = [
     component: Profile,
   },
   {
-    path: '/admdetails/:id',
+    path: '/admdetails',
     component: AdmDetails,
-    props : true,
+    name:'AdmDetails',
   } ,
   {
-    path: '/procdetails/:id',
+    path: '/procdetails',
     component: ProcDetails,
-    props : true,
+   name:'ProcDetails',
   } ,
   {
     path: '/start',
@@ -96,7 +104,44 @@ const routes  = [
     name: 'LanguagePage',
     component: LanguagePage,
   },
+  {
+    path: '/admpage',
+    name: 'AdministrationsPage',
+    component: AdministrationsPage,
+  },
+  {
+    path: '/procpage',
+    name: 'ProceduresPage',
+    component: ProceduresPage,
+  },
+  {
+    path: '/formpage',
+    name: 'FormulairesPage',
+    component: FormulairesPage,
+  },
+  {
+    path: '/formdetails',
+    component: FormDetails,
+    name: 'FormDetailsPage',
+  } ,
+  {
+    path: '/post/:id',
+    name: 'FeedPostDetail',
+    component: FeedPostDetailPage,
+  },
+  {
+    path: '/popover',
+    name: 'PopoverContent',
+    component:PopoverContent,
+  },
+  {
+    path: '/test',
+    name: 'Test',
+    component:Test,
+  },
 ]
+
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

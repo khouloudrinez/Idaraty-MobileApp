@@ -7,12 +7,12 @@
       <div class="content-container">
         <p class="pick-role-text">Choisissez votre rôle :</p>
         <ion-list class="ion-margin-top">
-          <ion-item class="radio-item" :class="{ 'selected': selectedRole === 'citizen' }" @click="selectRole('citizen')">
+          <ion-item class="radio-item" :class="{ 'selected': selectedRole === 'citizen' }" @click="selectRole('citoyen')">
             <!-- <ion-button :checked="selectedRole === 'citizen'" aria-label="Citizen"></ion-button> -->
             Citoyen
             <ion-icon v-if="selectedRole === 'citizen'" name="checkmark-outline" class="checkmark"></ion-icon>
           </ion-item>
-          <ion-item class="radio-item" :class="{ 'selected': selectedRole === 'administrator' }" @click="selectRole('administrator')">
+          <ion-item class="radio-item" :class="{ 'selected': selectedRole === 'administrator' }" @click="selectRole('Agent public')">
             <!-- <ion-button :checked="selectedRole === 'administrator'" aria-label="Administrator"></ion-button> -->
             Agent public
             <ion-icon v-if="selectedRole === 'administrator'" name="checkmark-outline" class="checkmark"></ion-icon>
@@ -23,7 +23,7 @@
             <ion-icon v-if="selectedRole === 'business'" name="checkmark-outline" class="checkmark"></ion-icon>
           </ion-item>
         </ion-list>
-        <p class="role-selected-text" v-if="selectedRole">Vous avez choisi le rôle de {{ selectedRole }}.</p>
+        <p class="role-selected-text" v-if="selectedRole">Vous avez choisi le rôle v{{ selectedRole }}.</p>
       </div>
     </ion-content>
   </ion-page>

@@ -46,7 +46,7 @@
   .card {
     width: 330px;
     height: 430px;
-    left: 12px;
+    left: 18px;
     top: 210px;
     position: absolute;
     background: white;

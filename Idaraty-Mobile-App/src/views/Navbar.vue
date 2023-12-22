@@ -1,26 +1,18 @@
 <template>
-    
-    <ion-toolbar class="header">
-     
-      <ion-buttons slot="start">
-        <ion-button>
-          <img src="/idaratyy.png" alt="Idaraty - ادارتي" class="logo">
+  <ion-toolbar class="header">
+    <ion-buttons slot="start">
+      <ion-button>
+        <img src="/idaratyy.png" alt="Idaraty - ادارتي" class="logo">
+      </ion-button>
+    </ion-buttons>
 
-        </ion-button>
-      </ion-buttons>
-      <ion-title>
-        <ion-button class="button" fill="outline">
-          <span>بالتونسي</span>
-        </ion-button>
-      </ion-title>
- <ion-buttons slot="end">
-          <ion-button color="danger" class="red-button">
-  Plus
-</ion-button>
-  
-      </ion-buttons>
-    </ion-toolbar>
- 
+    <ion-searchbar
+    :placeholder="$t('Navbar.rechercher')"
+  class="custom"
+  show-clear-button="always"
+></ion-searchbar>
+     
+  </ion-toolbar>
 </template>
 
 <script>
@@ -31,11 +23,12 @@ export default {
   IonTitle,
   IonButtons,
   IonButton,
+  IonSearchbar
 
 },
   name: 'Navbar',
 };
-import { IonHeader, IonToolbar, IonTitle, IonButtons, IonButton } from '@ionic/vue';
+import { IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonSearchbar } from '@ionic/vue';
 </script>
 
 <style scoped>
@@ -58,5 +51,10 @@ import { IonHeader, IonToolbar, IonTitle, IonButtons, IonButton } from '@ionic/v
 .logo {
   width: 130px; 
   height: auto; 
+}
+ion-searchbar.custom{
+  --padding-end: 40px; /* Increase padding at the end to create space for the clear button */
+    --cancel-button-width: 40px; /* Set the width of the cancel button */
+    --cancel-button-color: #fff; 
 }
 </style>
