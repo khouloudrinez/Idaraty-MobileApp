@@ -35,7 +35,7 @@
                   <div class="ListItemTitle">{{ list.title }}</div>
                   <div class="SecondaryText1">{{ list.subtitle }}</div>
                 </div>
-                <ion-icon class="ArrowIcon" name="arrow-forward-outline"></ion-icon>
+                <ion-icon class="ArrowIcon" name="arrow-forward-outline" @click="navigateToProcDetails"></ion-icon>
               </div>
             </div>
           </div>
@@ -54,7 +54,10 @@
 import Tabs from './Tabs.vue';
 import { ref, computed } from 'vue';
 import { IonContent, IonFooter, IonSearchbar, IonRow, IonCol, IonImg, IonCard, IonList,IonItem, IonToolbar,IonIcon,IonCardContent, IonPage} from '@ionic/vue';
+import { useRouter } from 'vue-router';
 
+
+const router = useRouter();
 
 
 const cards = ref([
@@ -100,6 +103,10 @@ const handleScrollStart = () => {
 
 const handleScrollEnd = () => {
 
+};
+
+const navigateToProcDetails = (procedureId) => {
+  router.push({ name: 'ProcDetails', params: { id: procedureId } });
 };
 </script>
 

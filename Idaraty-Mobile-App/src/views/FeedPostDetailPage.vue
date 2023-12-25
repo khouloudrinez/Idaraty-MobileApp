@@ -1,6 +1,15 @@
 <template>
     <ion-page>
-      <ion-header></ion-header>
+      <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start" class="back-button" @click="goToHomeScreen">
+          <ion-icon name="arrow-back" class="back-icon"></ion-icon>
+          <span class="back-text">Previous</span>
+        </ion-buttons>
+        
+      </ion-toolbar>
+    </ion-header>
+     
   
       <ion-content class="ion-padding" v-if="post">
         <ion-card>
@@ -68,6 +77,10 @@
   const sharePost = () => {
   
   };
+
+  const goToHomeScreen = () => {
+  router.push('/homescreen');
+};
   </script>
   
   <style scoped>
@@ -92,6 +105,21 @@
 .action-button {
   color: #555;
   flex: 2; 
+}
+
+.back-button {
+  font-size: 20px; 
+  margin-left: 16px; 
+  margin-top: 8px; 
+}
+
+.back-icon {
+  color: #000; 
+}
+.back-text {
+  margin-left: 5px; 
+  font-size: 20px;
+  color: #949494;
 }
 </style>
   

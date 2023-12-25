@@ -1,27 +1,25 @@
 <template>
-    <ion-page>
-      <ion-content :fullscreen="true">
-      post proc details
-       
-      <Tabs> </Tabs>
-      </ion-content>
-  
-    
-    </ion-page>
-  </template>
-  
-  <script setup>
-  import { ref } from 'vue';
-  import { IonContent, IonPage, IonIcon, IonButton, IonSpinner } from '@ionic/vue';
-  import { useRouter } from 'vue-router';
-  import Tabs from './Tabs.vue';
+  <ion-page>
+    <ion-content :fullscreen="true">
  
-  
+    
 
-  </script>
-  
-  <style scoped>
-  
-  
-  </style>
-  
+      <Tabs></Tabs>
+    </ion-content>
+  </ion-page>
+</template>
+
+<script setup>
+import { ref } from 'vue';
+import Tabs from './Tabs.vue';
+
+</script>
+
+<style scoped>
+/* Add styles for the sections if needed */
+.section {
+  margin-top: 20px;
+}
+
+/* Add other styles as needed */
+</style>

@@ -23,7 +23,7 @@
             <ion-icon v-if="selectedRole === 'business'" name="checkmark-outline" class="checkmark"></ion-icon>
           </ion-item>
         </ion-list>
-        <p class="role-selected-text" v-if="selectedRole">Vous avez choisi le rôle v{{ selectedRole }}.</p>
+        <p class="role-selected-text" v-if="selectedRole">Vous avez choisi le rôle {{ selectedRole }}.</p>
       </div>
     </ion-content>
   </ion-page>
