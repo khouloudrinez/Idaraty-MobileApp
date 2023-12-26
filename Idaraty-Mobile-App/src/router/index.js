@@ -75,9 +75,10 @@ const routes  = [
     name:'AdmDetails',
   } ,
   {
-    path: '/procdetails',
+    path: '/procdetails/:id',
     component: ProcDetails,
    name:'ProcDetails',
+  
   } ,
   {
     path: '/start',

@@ -35,7 +35,7 @@
                   <div class="ListItemTitle">{{ list.title }}</div>
                   <div class="SecondaryText1">{{ list.subtitle }}</div>
                 </div>
-                <ion-icon class="ArrowIcon" name="arrow-forward-outline" @click="navigateToProcDetails"></ion-icon>
+                <ion-icon class="ArrowIcon" name="arrow-forward-outline" @click="navigateToProcDetail(list)"></ion-icon>
               </div>
             </div>
           </div>
@@ -81,7 +81,15 @@ const scrollOptionsCards = ref({
 const zoomedCard = ref(null);
 
 const lists = ref([
-  { id: 1, title: 'Obtention du visa Schengen - Etudes', subtitle: '6 Étape(s)', imageSrc: 'https://idaraty.s3.us-west-000.backblazeb2.com/logos/ambassade-de-hongrie.webp' },
+{
+    id: 1,
+    title: 'Obtention du visa Schengen - Etudes',
+    subtitle: '6 Étape(s)',
+    imageSrc: 'https://idaraty.s3.us-west-000.backblazeb2.com/logos/ambassade-de-hongrie.webp',
+    resume: 'Le visa d’études permet l’entrée, aux fins d’un séjour de courte ou de longue durée, mais à temps déterminé, à l’étranger qui entend suivre des cours universitaires, des cours d’études ou de formation professionnelle auprès des Instituts reconnus ou, en tout cas, qualifiés, ou bien à l’étranger appelé à mener des activités culturelles et de recherches.Le visa d’études est en outre délivré, pour la période nécessaire, à l’étranger pour passer les examens d’habilitation à l’exercice professionnel.',
+    prerequis: 'Avoir plus de 14 ans. En ce qui concerne les activités d’études qui comportent l’exercice d’activités sanitaires, est exigée la reconnaissance préalable du titre d’étude habilitant à l’exercice professionnel de la part du Ministère italien de la Santé.',
+    etapes: 'Un formulaire de demande de visa de séjour Voir le formulaire Un passeport en cours de validité supérieure de trois mois à la durée du séjour Une photo format passeport Une documentation et des garanties concernant le cours d’études, de formation professionnelle ou les activités culturelles à mener Une documentation et des garanties concernant les moyens de subsistance nécessaires Une police d’assurance pour soins médicaux et hospitalisations, là où l’étranger n’ait pas droit à l’assistance sanitaire au pays concerné en vertu d’accords ou de conventions en vigueur avec le Pays d’origine.',
+  },
   { id: 2, title: "Guide d'accès à l'information en Tunisie", subtitle: '3 Étape(s)', imageSrc: 'https://idaraty.s3.us-west-000.backblazeb2.com/logos/linstance-dacces-a-linformation.webp' },
   { id: 3, title: "Achat d'une voiture populaire", subtitle: '9 Étape(s)', imageSrc: 'https://idaraty.s3.us-west-000.backblazeb2.com/logos/ministere-de-lindustrie-et-du-commerce.webp' },
   { id: 4, title: "Inscription d'une naissance", subtitle: '6 Étape(s)', imageSrc: 'https://idaraty.s3.us-west-000.backblazeb2.com/logos/municipalite-agareb.webp' },
@@ -105,9 +113,11 @@ const handleScrollEnd = () => {
 
 };
 
-const navigateToProcDetails = (procedureId) => {
-  router.push({ name: 'ProcDetails', params: { id: procedureId } });
+const navigateToProcDetail = (list) => {
+  
+  router.push({ name: 'ProcDetails', params: { id: list.id } });
 };
+
 </script>
 
 <style scoped>
