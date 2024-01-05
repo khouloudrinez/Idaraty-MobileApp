@@ -159,8 +159,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { useRouter } from 'vue-router';
 import Tabs from './Tabs.vue';
 import Navbar from './Navbar.vue';
-// import PopoverContent from './PopoverContent.vue';
-const popover = ref(null);
+
 const router = useRouter();
 
 
@@ -246,9 +245,7 @@ const onSearch = (event) => {
   
 };
 
-// const dismissPopover = async () => {
-//   await popover.value.dismiss();
-// };
+
 const navigateToPostDetail = (item) => {
 
   router.push({ name: 'FeedPostDetail', params: { id: item.id } });

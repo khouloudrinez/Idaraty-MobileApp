@@ -1,58 +1,57 @@
 <template>
-    <ion-page>
-      <ion-content class="ion-padding">
-        <div class="Frame3">
-            <div>
-          <img class="logo" src="/idaratyy.png"> 
+  <ion-page>
+    <ion-content class="ion-padding" scroll-y="false">
+      <div class="Frame3">
+        <div>
+          <img class="logo" src="/logo.png">
         </div>
-          <ion-label class="text">
-            Vous êtes peut-être intéressé par
-          </ion-label>
-          <ion-label class="ListHeading">
-            Suggestions des administrations que vous pouvez suivre :
-          </ion-label>
-  
-          <ion-list class="List">
-            <ion-item class="Item" v-for="(item, index) in items" :key="index">
-              <div class="ItemMaster">
-                <ion-label class="Content">
-                  <ion-label class="Lables">
-                    <ion-label class="ContentStart">
-                      <h2 class="ListItemTitle">{{ item.title }}</h2>
-                    </ion-label>
-                    <ion-label class="ContentEnd">
-                      <ion-label class="Contents">
-                        <p class="Note" @click="suivreClicked(item.title, index)">
-                          {{ followedItems.includes(index) ? 'Suivi' : 'Suivre' }}
-                          <ion-icon
-                            v-if="followedItems.includes(index)"
-                            class="Checkmark"
-                            name="checkmark-outline"
-                          ></ion-icon>
-                        </p>
-                      </ion-label>
-                    </ion-label>
-                  </ion-label>
-                </ion-label>
-              </div>
-            </ion-item>
-          </ion-list>
-          <div>
-          <div class="Counter" v-if="followedItems.length > 0">
-        <p>{{ counter }}/5</p>
+
+        <ion-label class="text">
+          Vous êtes peut-être intéressé par
+        </ion-label>
+
+        <ion-label class="ListHeading">
+          Suggestions des administrations que vous pouvez suivre :
+        </ion-label>
+
+        <ion-list class="List">
+          <ion-item class="Item" v-for="(item, index) in items" :key="index">
+  <div class="ItemMaster">
+    <div class="ItemContent">
+      <h2 class="ListItemTitle">{{ item.title }}</h2>
+    </div>
+    <div class="ItemContent">
+      <p class="Note" @click="suivreClicked(item.title, index)">
+        {{ followedItems.includes(index) ? 'Suivi' : 'Suivre' }}
+        <ion-icon
+          v-if="followedItems.includes(index)"
+          class="Checkmark"
+          name="checkmark-outline"
+        ></ion-icon>
+      </p>
+    </div>
+  </div>
+</ion-item>
+
+        </ion-list>
+
+        <div class="Counter" v-if="followedItems.length > 0">
+          <p>{{ counter }}/5</p>
+        </div>
+
+        <ion-button class="SuivantButton" expand="full" fill="clear" @click="suivantClicked">
+          Suivant
+        </ion-button>
+
+        <ion-button class="SkipButton" expand="full" fill="clear" @click="skipClicked">
+          <ion-icon name="play-skip-forward-outline"></ion-icon>
+          Skip
+        </ion-button>
       </div>
-          <ion-button class="SuivantButton" expand="full" fill="clear" @click="suivantClicked">
-            Suivant
-          </ion-button>
-          <ion-button class="SkipButton" expand="full" fill="clear" @click="skipClicked">
-            <ion-icon name="play-skip-forward-outline"></ion-icon>
-            Skip
-          </ion-button>
-        </div>
-        </div>
-      </ion-content>
-    </ion-page>
-  </template>
+    </ion-content>
+  </ion-page>
+</template>
+
 
   <script setup>
 import { ref } from 'vue';
@@ -90,171 +89,221 @@ const suivantClicked = () => {
   router.push('/language');
 };
 </script>
-  <style scoped>
-  .Frame3 {
+<!-- 1 -->
 
-    background: white;
+<!-- <style scoped>
+  .Frame3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh; 
   }
-  .logo {
-  margin-left: 85px;
-  width: 180px; 
-  height: 100px; 
-}
-  
-  .text {
+
+  .List {
+    max-width: 400px;
     width: 100%;
-    height: 100%;
+    margin: 16px 0;
+  }
+
+  .ItemMaster {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  padding: 8px 16px;
+  width: 100%;
+}
+
+.ItemContent {
+  display: flex;
+  align-items: center;
+}
+
+.ListItemTitle {
+  flex: 1;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 16px;
+  font-family: Roboto;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.15px;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.Note {
+  color: #666666;
+  font-size: 12px;
+  font-family: Roboto;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+}
+
+  .Counter {
+    text-align: center;
+    margin-top: 16px;
+  }
+
+  .SuivantButton,
+  .SkipButton {
+   
+    color: #666666;
+    font-size: 16px;
+    font-family: Roboto;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 44.80px;
+    position: fixed;
+    letter-spacing: 1.20px;
+    word-wrap: break-word;
+    bottom: 40px;
+  }
+  .SkipButton {
+    bottom: 10px;
+    font-size: 13px; 
+    line-height: 28px; 
+  }
+
+  .Checkmark {
+    color: #ff000d;
+    margin-left: 8px;
+  }
+
+  .logo {
+    margin: 16px auto;
+    display: block;
+  }
+
+  .text {
     text-align: center;
     color: black;
     font-size: 16px;
     font-family: Roboto;
     font-weight: 500;
     text-transform: uppercase;
-    line-height: 44.80px;
-    letter-spacing: 1.20px;
-    word-wrap: break-word;
+    line-height: 24px;
+    letter-spacing: 0.5px;
+    margin-top: 16px;
   }
-  
-  .ListHeading {
-   
-    width: 100%;
 
-    height: 100%;
+  .ListHeading {
     color: rgba(0, 0, 0, 0.87);
     font-size: 16px;
     font-family: Roboto;
     font-weight: 600;
-   
-    letter-spacing: 0.40px;
- 
+    letter-spacing: 0.4px;
+    margin-top: 16px;
   }
-  
-  .List {
-    width: 319px;
-    height: 353px;
-    padding-top: 18px;
-    padding-bottom: 8px;
-    left: 17px;
-    top: 250px;
-    position: absolute;
+</style> -->
+
+<!-- 2 -->
+<style scoped>
+  .Frame3 {
+    display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
-    display: inline-flex;
-  }
-  
-  .Item {
-    align-self: stretch;
-    justify-content: flex-start;
-    align-items: flex-start;
-    display: inline-flex;
-  }
-  
-  .ItemMaster {
-    flex: 1 1 0 ;
-    height: 80px;
+    justify-content: center;
     
-    padding-left: 16px;
-    background: white;
-    justify-content: flex-start;
-    align-items: center;
-    display: flex;
+    background-color: #f9f9f9; 
   }
-  
-  .Content {
-    flex: 1 1 0;
-    height: 40px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 16px;
-    display: flex;
+
+  .List {
+    max-width: 400px;
+    width: 100%;
+    margin: 16px 0;
   }
-  
-  .Lables {
-    flex: 1 1 0;
-    align-self: center;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    padding-right: 16px;
-    background: white;
-    box-shadow: 0px 8px 0px rgba(0, 0, 0, 0.25);
+
+  .ItemMaster {
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 55px; 
+    padding: 16px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  }
+
+  .ItemContent {
     display: flex;
-  }
-  
-  .ContentStart {
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    display: inline-flex;
-  }
-  
-  .ListItemTitle {
-    color: rgba(0, 0, 0, 0.87);
-    font-size: 16px;
-    font-family: Roboto;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: 0.15px;
-    word-wrap: break-word;
-  }
-  
-  .ContentEnd {
-    justify-content: flex-end;
     align-items: center;
-    gap: 16px;
-    display: flex;
   }
-  
-  .Contents {
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
-    gap: 2px;
-    display: inline-flex;
-  }
-  
-  .Note {
-    text-align: right;
-    color: #666666;
-    font-size: 12px;
-    font-family: Roboto;
-    font-weight: 400;
-    line-height: 16px;
-    letter-spacing: 0.40px;
+
+  .ListItemTitle {
+    flex: 1;
+    color: #333;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    font-weight: 500;
+    line-height: 24px;
+    margin: 0;
     word-wrap: break-word;
+  }
+
+  .Note {
+    color: #666666;
+    font-size: 14px; 
     cursor: pointer;
   }
+
+  .Counter {
+    text-align: center;
+    margin-top: -20px;
+    color: #333;
+    font-size: 14px; 
+  }
+
+  .SuivantButton,
   .SkipButton {
-  /* margin-top: 50px ; */
-  color: #666666;
-  font-size: 10px;
-  font-family: Roboto;
-  font-weight: 500;
-  text-transform: uppercase;
-  line-height: 28px;
-  letter-spacing: 1.20px;
-  word-wrap: break-word;
-}
-.SuivantButton {
-  margin-top: 405px ;
-  color: #666666;
-  font-size: 16px;
-  font-family: Roboto;
-  font-weight: 500;
-  text-transform: uppercase;
-  line-height: 44.80px;
-  letter-spacing: 1.20px;
-  word-wrap: break-word;
-}
+    color: rgb(43, 42, 42);
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 44.80px;
+    position: fixed;
+    letter-spacing: 1.20px;
+    word-wrap: break-word;
+    bottom: 40px;
+    background-color: #c4c2c25b; 
+    border: none;
+    border-radius: 10px;
+  }
 
-.Checkmark {
-  color: #ff000d;
-  margin-left: 8px;
-}
+  .SkipButton {
+    background-color: white; 
+    bottom: 0px;
+    font-size: 12px;
+    line-height: 28px;
+  }
 
-  </style>
-  
+  .Checkmark {
+    color: rgb(35, 34, 34);
+    margin-left: 8px;
+  }
+
+  .logo {
+    margin: 16px auto;
+    display: block;
+  }
+
+  .text {
+    text-align: center;
+    color: #333;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 24px;
+    margin-top: 16px;
+  }
+
+  .ListHeading {
+    color: #333;
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 600;
+    margin-top: 16px;
+  }
+</style>

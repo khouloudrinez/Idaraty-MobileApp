@@ -21,6 +21,7 @@ import FormDetails from '../views/FormDetails.vue' ;
 import FeedPostDetailPage from '../views/FeedPostDetailPage.vue' ;
 import PopoverContent from '../views/PopoverContent.vue' ;
 import Test from '../views/Test.vue' ;
+import AdmCardexp from '../views/AdmCardexp.vue' ;
 
 
 
@@ -139,6 +140,11 @@ const routes  = [
     path: '/test',
     name: 'Test',
     component:Test,
+  },
+  {
+    path: '/exemple',
+    name: 'Exemple',
+    component:AdmCardexp,
   },
 ]
 
